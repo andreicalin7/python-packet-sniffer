@@ -45,14 +45,16 @@ Filtered packets are:
 
 ---
 
+## Example Output
+
+![Packet Sniffer Output](screenshot.png)
+
 ## Installation
+
+---
 
 1. Clone the repository:
 
 ```bash
 git clone https://github.com/andreicalin7/packet-sniffer.git
 cd packet-sniffer
-
-## Example Output
-
-![Packet Sniffer Output](screenshot.png)
