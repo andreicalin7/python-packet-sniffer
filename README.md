@@ -52,3 +52,7 @@ Filtered packets are:
 ```bash
 git clone https://github.com/andreicalin7/packet-sniffer.git
 cd packet-sniffer
+
+## Example Output
+
+![Packet Sniffer Output](screenshot.png)
