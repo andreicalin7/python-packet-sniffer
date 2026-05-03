@@ -3,6 +3,8 @@ from scapy.layers.inet import IP, TCP, UDP
 
 from config import FILTER_PROTOCOL
 from logger import log_packet
+from datetime import datetime
+
 
 # Counters
 packet_count = 0
@@ -28,7 +30,10 @@ def packet_callback(packet):
         dst_port = packet[TCP].dport
 
         message = f"[TCP] {src_ip}:{src_port} -> {dst_ip}:{dst_port}"
-        print(Fore.GREEN + message)
+        timestamp = datetime.now().strftime("%H:%M:%S")
+        formatted_message = f"[{timestamp}] {message}"
+
+        print(Fore.GREEN + formatted_message)
         log_packet(message)
 
     elif FILTER_PROTOCOL == "UDP" and packet.haslayer(UDP):
@@ -38,7 +43,10 @@ def packet_callback(packet):
         dst_port = packet[UDP].dport
 
         message = f"[UDP] {src_ip}:{src_port} -> {dst_ip}:{dst_port}"
-        print(Fore.CYAN + message)
+        timestamp = datetime.now().strftime("%H:%M:%S")
+        formatted_message = f"[{timestamp}] {message}"
+
+        print(Fore.CYAN + formatted_message)
         log_packet(message)
 
 
@@ -47,3 +55,4 @@ def print_summary():
     print(f"Total packets: {packet_count}")
     print(f"TCP packets: {tcp_count}")
     print(f"UDP packets: {udp_count}")
+    
